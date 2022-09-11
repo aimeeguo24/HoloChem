@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: HL2_Initial
+  companyName: ' Chemicats'
+  productName: ChemLab
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -178,8 +178,7 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: -5857003258441716791, guid: 772fcbc5b79ad4f49a06db2fb6f56100, type: 2}
-  - {fileID: 2956856107871241741, guid: 42317900d0e441d44a1e16b5183499d0, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -674,14 +673,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Template3D
+  metroPackageName: ChemLab
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 00aad5ba74d4d901
-  metroApplicationDescription: Template_3D
+  metroCertificateSubject: ' Chemicats'
+  metroCertificateIssuer: ' Chemicats'
+  metroCertificateNotAfter: 006d65da1ee5d901
+  metroApplicationDescription: ChemLab
   wsaImages: {}
   metroTileShortName: HL2_Initial
   metroTileShowName: 0
@@ -697,7 +696,7 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
-      GazeInput: True
+      GazeInput: False
       PrivateNetworkClientServer: True
       InternetClientServer: True
       SpatialPerception: True
