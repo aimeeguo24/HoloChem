@@ -52,9 +52,15 @@ public class filling : MonoBehaviour
                 lv.level += fillingSpeed;
                 Debug.Log("isFilling: " + isFilling);
             }
+            else{
+                pouringRenderer.SetActive(false);
+            }
+        }
+        else{
+            pouringRenderer.SetActive(false);
         }
     }
-        
+
 
 
 
@@ -79,4 +85,3 @@ public class filling : MonoBehaviour
 
 
 }
-

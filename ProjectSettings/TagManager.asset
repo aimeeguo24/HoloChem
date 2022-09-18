@@ -6,6 +6,10 @@ TagManager:
   tags:
   - From
   - Target
+  - on_table
+  - Table
+  - chem_obj
+  - holding
   layers:
   - Default
   - TransparentFX

@@ -10,10 +10,12 @@ public class pouring : MonoBehaviour
     public float currentLevel = 0.0f;
     public float pouredLevel = 0.0f;
     public bool isPouring = false;
-
     private LiquidVolume lv;
     private GameObject pouringRenderer;
     private Vector3 spillPosition;
+    private float spillAmount;
+
+    private bool isInHold = false;
 
 
 
@@ -27,6 +29,7 @@ public class pouring : MonoBehaviour
         // Change the color and level
         origColor = lv.liquidColor2;
         currentLevel = lv.level;
+
     }
 
 
@@ -39,27 +42,63 @@ public class pouring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isPouring = lv.GetSpillPoint(out spillPosition);
-        currentLevel = lv.level;
-        if (isPouring)
+        if (isInHold)
         {
-            if (lv.level > 0.0f)
+            isPouring = lv.GetSpillPoint(out spillPosition, out spillAmount);
+            currentLevel = lv.level;
+            if (isPouring) //if isPouring == true
             {
-                pouringRenderer.SetActive(true);
-                pouringRenderer.transform.position = spillPosition;
-                lv.level -= pouringSpeed;
-                pouredLevel += pouringSpeed;
-                Debug.Log("isPouring: " + isPouring);
+                GlobalValues.isPouring = true;
+                SetAsPouring();
+
+                //if there is liquid (liquid > 0) we pour it
+                if (lv.level > 0.0f)
+                {
+                    // GlobalValues.spillAmount = 0.0f;
+                    pouringRenderer.SetActive(true);
+                    pouringRenderer.transform.position = spillPosition;
+                    GlobalValues.spillPosition = spillPosition;
+                    // lv.level -= pouringSpeed;
+                    // pouredLevel += pouringSpeed;
+                    lv.level -= spillAmount;
+                    pouredLevel += spillAmount;
+                    GlobalValues.spillAmount = spillAmount;
+                    // Debug.Log("isPouring: " + isPouring + " currentLevel: " + currentLevel + " pouredLevel: " + pouredLevel + " spillAmount: " + spillAmount);
+                }
+                else // if there is no liquid but isPouring is true, we don't pour
+                {
+                    pouringRenderer.SetActive(false);
+                }
             }
-            else
+            else // if isPouring == false, we also don't pour / we do nothing
             {
                 pouringRenderer.SetActive(false);
             }
         }
-        else
-        {
-            pouringRenderer.SetActive(false);
-        }
+
+    }
+
+    public void SetInHold()
+    {
+        isInHold = true;
+    }
+
+    public void UnSetInHold()
+    {
+        isInHold = false;
+    }
+
+
+
+    public void SetAsPouring()
+    {
+        GlobalValues.pouringObject = gameObject;
+    }
+
+    public void UnSetAsPouring()
+    {
+        GlobalValues.pouringObject = null;
+        GlobalValues.isPouring = false;
+        UnSetInHold();
     }
 }
-
