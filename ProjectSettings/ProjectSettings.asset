@@ -188,8 +188,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: -5857003258441716791, guid: 772fcbc5b79ad4f49a06db2fb6f56100, type: 2}
-  - {fileID: 2956856107871241741, guid: 42317900d0e441d44a1e16b5183499d0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -707,7 +708,7 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
-      GazeInput: False
+      GazeInput: True
       PrivateNetworkClientServer: True
       InternetClientServer: True
       SpatialPerception: True
