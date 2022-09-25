@@ -25,7 +25,7 @@ public class GlobalController : MonoBehaviour
 
     void Awake()
     {
-        GlobalValues.chemObjectsContainer = GameObject.Find("/MixedRealityPlayspace/ObjectsContainer/ChemObjectsContainer");
+        GlobalValues.chemObjectsContainer = GameObject.Find("/MixedRealityPlayspace/ContainerCollection");
         GlobalValues.tableObject = GameObject.Find("/MixedRealityPlayspace/ObjectsContainer/Table/PBR_Table");
     }
 
@@ -70,15 +70,22 @@ public class GlobalController : MonoBehaviour
                     Vector3 targetMin = obj.GetComponent<Collider>().bounds.min;
                     Vector3 targetMax = obj.GetComponent<Collider>().bounds.max;
 
-                    if(Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) < 0.2f && Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) < 0.2f && (GlobalValues.spillPosition.y - targetMin.y) > 0.001f)
+                    if (Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) < 0.06f && Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) < 0.06f && (GlobalValues.spillPosition.y - targetMin.y) > 0.001f)
                     {
+                        Debug.Log("(x, z): " + "(" + Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) + "," + Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) + ")");
+
                         GlobalValues.targetObject = obj;
                         Debug.Log("targetObject: " + GlobalValues.targetObject.name);
+
+                        FillTargetObject();
+
                     }
+
+
                 }
             }
 
-            FillTargetObject();
+            //FillTargetObject();
         }
     }
 
@@ -89,6 +96,19 @@ public class GlobalController : MonoBehaviour
         {
             LiquidVolume lv = targetGO.transform.Find("LiquidVolume").gameObject.GetComponent<LiquidVolume>();
             lv.level += GlobalValues.spillAmount;
+            if ((pouringObject.name == "lead_nitrate" && targetObject.name == "potassium_iodide") || (pouringObject.name == "potassium_iodide" && targetObject.name == "lead_nitrate"))  
+            {
+                lv.liquidColor1 = Color.yellow;
+                lv.liquidColor2 = Color.white;
+            }
+            if ((pouringObject.name == "tap_water" && targetObject.name == "sulfuric_acid") || (pouringObject.name == "sulfuric_acid" && targetObject.name == "tap_water"))
+            {
+                lv.liquidColor1 = Color.white;
+                lv.murkiness = 1;
+                lv.liquidColor2 = Color.white;
+                lv.smokeEnabled = true;
+            }
+
             if (lv.level > 1.0f)
             {
                 lv.level = 0.99f;
