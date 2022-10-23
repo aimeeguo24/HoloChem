@@ -64,7 +64,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Experimental.DialogTest
         /// </summary>
         public void OpenChoiceDialogLarge()
         {
-            Dialog myDialog = Dialog.Open(DialogPrefabLarge, DialogButtonType.Yes | DialogButtonType.No, "Are you ready to move on to the lab?", "Thank you for reading the instructions carefully", false);
+            Dialog myDialog = Dialog.Open(DialogPrefabLarge, DialogButtonType.Yes | DialogButtonType.No, "Are you ready to move on to the lab?", "Thank you for reading the instructions carefully", true);
             if (myDialog != null)
             {
                 myDialog.OnClosed += OnClosedDialogEvent;
@@ -84,7 +84,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Experimental.DialogTest
         /// </summary>
         public void OpenChoiceDialogMedium()
         {
-            Dialog myDialog = Dialog.Open(DialogPrefabMedium, DialogButtonType.Yes | DialogButtonType.No, "Are you ready to move on to the lab?", "Thank you for reading the instructions carefully", false);
+            Dialog myDialog = Dialog.Open(DialogPrefabMedium, DialogButtonType.Yes | DialogButtonType.No, "Are you ready to move on to the lab?", "Thank you for reading the instructions carefully", true);
             if (myDialog != null)
             {
                 myDialog.OnClosed += OnClosedDialogEvent;

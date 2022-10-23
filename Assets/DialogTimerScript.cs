@@ -31,7 +31,12 @@ public class DialogTimerScript : MonoBehaviour
     /// </summary>
     public void OpenConfirmationDialogMedium()
     {
-        Dialog.Open(DialogPrefabMedium, DialogButtonType.OK, "Please read the instructions carefully", "This is vital for the safety of the lab", false);
+        ///Color redColor = new Color(255, 0, 0, 1);
+        ///MeshRenderer gameObjectRenderer = DialogPrefabMedium.GetComponent<MeshRenderer>();
+        ///Material newMaterial = new Material(Shader.Find(""));
+        ///newMaterial.color = redColor;
+        ///gameObjectRenderer.material = newMaterial;
+        Dialog.Open(DialogPrefabMedium, DialogButtonType.OK, "Please read the instructions carefully", "This is vital for the safety of the lab", true);
     }
 
     /// <summary>

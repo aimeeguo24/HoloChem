@@ -23,6 +23,8 @@ public class GlobalController : MonoBehaviour
 
     private Bounds tableBounds;
 
+    //public Vector3 _spillPosition;
+
     void Awake()
     {
         GlobalValues.chemObjectsContainer = GameObject.Find("/MixedRealityPlayspace/ContainerCollection");
@@ -51,6 +53,8 @@ public class GlobalController : MonoBehaviour
         pouringObject = GlobalValues.pouringObject;
         targetObject = GlobalValues.targetObject;
 
+        //_spillPosition = GlobalValues.spillPosition;
+
         UpdateTargetObject();
 
 
@@ -58,7 +62,7 @@ public class GlobalController : MonoBehaviour
 
     private void UpdateTargetObject()
     {
-        Debug.Log("GlobalValues.isPouring: " + GlobalValues.isPouring);
+        //Debug.Log("GlobalValues.isPouring: " + GlobalValues.isPouring);
         if (GlobalValues.isPouring)
         {
             GameObject pouringObject = GlobalValues.pouringObject;
@@ -70,12 +74,16 @@ public class GlobalController : MonoBehaviour
                     Vector3 targetMin = obj.GetComponent<Collider>().bounds.min;
                     Vector3 targetMax = obj.GetComponent<Collider>().bounds.max;
 
-                    if (Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) < 0.06f && Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) < 0.06f && (GlobalValues.spillPosition.y - targetMin.y) > 0.001f)
+                    //Debug.Log("targetMin: " + targetMin + "; spillPosition: " + GlobalValues.spillPosition);
+
+                    //if (Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) < 0.1f && Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) < 0.1f && (GlobalValues.spillPosition.y - targetMin.y) > 0.001f)
+                    if (Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) < 0.12f && Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) < 0.12f)
+
                     {
-                        Debug.Log("(x, z): " + "(" + Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) + "," + Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) + ")");
+                        //Debug.Log("(x, z): " + "(" + Mathf.Abs(targetMin.x - GlobalValues.spillPosition.x) + "," + Mathf.Abs(targetMin.z - GlobalValues.spillPosition.z) + ")");
 
                         GlobalValues.targetObject = obj;
-                        Debug.Log("targetObject: " + GlobalValues.targetObject.name);
+                        //Debug.Log("targetObject: " + GlobalValues.targetObject.name);
 
                         FillTargetObject();
 

@@ -16,4 +16,7 @@ public static class GlobalValues
 
     public static GameObject tableObject;
     public static GameObject chemObjectsContainer;
+
+    public static bool isLookedAtLN = false;
+    public static bool isLookedAtPI = false;
 }

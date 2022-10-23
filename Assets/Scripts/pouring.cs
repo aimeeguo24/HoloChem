@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LiquidVolumeFX;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class pouring : MonoBehaviour
 {
@@ -17,9 +18,20 @@ public class pouring : MonoBehaviour
 
     private bool isInHold = false;
 
+    private float numDialog = 0;
+    [SerializeField]
+    [Tooltip("Assign DialogLarge_192x192.prefab")]
+    private GameObject dialogPrefabMedium;
+    public GameObject DialogPrefabMedium
+    {
+        get => dialogPrefabMedium;
+        set => dialogPrefabMedium = value;
+    }
 
-
-
+    public void OpenConfirmationDialogMedium()
+    {
+        Dialog.Open(DialogPrefabMedium, DialogButtonType.OK, "Please pay attention when pouring chemicals", "This is vital for the safety of the lab", true);
+    }
 
     private void Awake()
     {
@@ -50,7 +62,11 @@ public class pouring : MonoBehaviour
             {
                 GlobalValues.isPouring = true;
                 SetAsPouring();
-
+                if(GlobalValues.isLookedAtLN==false && GlobalValues.isLookedAtPI == false && numDialog==0)
+                {
+                    OpenConfirmationDialogMedium();
+                    numDialog++;
+                }
                 //if there is liquid (liquid > 0) we pour it
                 if (lv.level > 0.0f)
                 {
