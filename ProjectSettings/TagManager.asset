@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - From
+  - Target
+  - on_table
+  - Table
+  - chem_obj
+  - holding
   layers:
   - Default
   - TransparentFX

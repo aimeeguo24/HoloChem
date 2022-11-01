@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: HP Reverb G2 Controller Profile
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.interaction.hpmixedrealitycontroller
   openxrExtensionStrings: XR_EXT_hp_mixed_reality_controller
   company: Microsoft
@@ -256,9 +256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Holographic Remoting for Play Mode
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.playmoderemoting
-  openxrExtensionStrings: XR_MSFT_holographic_remoting
+  openxrExtensionStrings: XR_MSFT_holographic_remoting XR_MSFT_holographic_remoting_speech
   company: Microsoft
   priority: -100
   required: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Mixed Reality Features
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.hololens
   openxrExtensionStrings: XR_MSFT_holographic_window_attachment XR_KHR_win32_convert_performance_counter_time
     XR_MSFT_unbounded_reference_space XR_MSFT_spatial_anchor XR_MSFT_secondary_view_configuration
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Mixed Reality Features
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.hololens
   openxrExtensionStrings: XR_MSFT_holographic_window_attachment XR_KHR_win32_convert_performance_counter_time
     XR_MSFT_unbounded_reference_space XR_MSFT_spatial_anchor XR_MSFT_secondary_view_configuration
@@ -355,9 +355,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Holographic Remoting remote app
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.appremoting
-  openxrExtensionStrings: XR_MSFT_holographic_remoting
+  openxrExtensionStrings: XR_MSFT_holographic_remoting XR_MSFT_holographic_remoting_speech
   company: Microsoft
   priority: -100
   required: 0
@@ -432,9 +432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Motion Controller Model
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.controller
-  openxrExtensionStrings: XR_MSFT_controller_model
+  openxrExtensionStrings: XR_MSFT_controller_model XR_FB_render_model
   company: Microsoft
   priority: 0
   required: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Motion Controller Model
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.controller
-  openxrExtensionStrings: XR_MSFT_controller_model
+  openxrExtensionStrings: XR_MSFT_controller_model XR_FB_render_model
   company: Microsoft
   priority: 0
   required: 0
@@ -521,9 +521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Holographic Remoting remote app
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.appremoting
-  openxrExtensionStrings: XR_MSFT_holographic_remoting
+  openxrExtensionStrings: XR_MSFT_holographic_remoting XR_MSFT_holographic_remoting_speech
   company: Microsoft
   priority: -100
   required: 0
@@ -581,12 +581,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Hand Tracking
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_MSFT_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking XR_EXT_hand_joints_motion_range XR_MSFT_hand_tracking_mesh
   company: Microsoft
   priority: 0
   required: 0
+  leftHandTrackingOptions:
+    motionRange: 0
+  rightHandTrackingOptions:
+    motionRange: 0
+  questHandTrackingMode: 1
 --- !u!114 &5666953690730026844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,12 +657,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 1
   nameUi: Hand Tracking
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_MSFT_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking XR_EXT_hand_joints_motion_range XR_MSFT_hand_tracking_mesh
   company: Microsoft
   priority: 0
   required: 0
+  leftHandTrackingOptions:
+    motionRange: 0
+  rightHandTrackingOptions:
+    motionRange: 0
+  questHandTrackingMode: 1
 --- !u!114 &6680700073886724442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,7 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: HP Reverb G2 Controller Profile
-  version: 1.4.4
+  version: 1.5.1
   featureIdInternal: com.microsoft.openxr.feature.interaction.hpmixedrealitycontroller
   openxrExtensionStrings: XR_EXT_hp_mixed_reality_controller
   company: Microsoft
